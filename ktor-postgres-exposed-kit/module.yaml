@@ -1,0 +1,26 @@
+product: jvm/lib
+
+apply:
+  - ../common-lib.module-template.yaml
+
+dependencies:
+  - $libs.exposed.core: exported
+  - $libs.exposed.jdbc: exported
+  - $libs.hikaricp: exported
+  - $libs.postgresql
+  - $libs.flyway.core: exported
+  - $libs.flyway.database.postgresql
+  - $libs.kotlinx.coroutines.core
+
+settings:
+  publishing:
+    pom:
+      name: ktor-postgres-exposed-kit
+      description: PostgreSQL HikariCP pooling, Exposed 1.0 IO transaction bridge, Statement.NO_GENERATED_KEYS insert helper, and Flyway advisory-locked migration utilities.
+
+test-dependencies:
+  - $libs.kotlinx.coroutines.test
+  - $libs.logback.classic
+  - $libs.testcontainers.core
+  - $libs.testcontainers.postgresql
+  - $libs.testcontainers.junit.jupiter
