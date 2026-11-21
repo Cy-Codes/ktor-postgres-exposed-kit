@@ -1,0 +1,2 @@
+modules:
+  - ktor-postgres-exposed-kit
